@@ -9,3 +9,4 @@ Currently, two official plugins are available:
 # single_page_portfolio
 # single_page_portfolio
 # single_page_portfolio
+# single_page_portfolio

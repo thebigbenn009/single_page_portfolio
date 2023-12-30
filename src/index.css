@@ -1,30 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,300;0,6..12,600;1,6..12,400&family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,500;0,700;1,200&family=Space+Grotesk:wght@500;700&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
 }
-
+:root {
+  --black: #151515;
+  --green: #4ee1a0;
+  --dark-grey: #242424;
+  --grey: #d9d9d9;
+  --white: #fff;
+}
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Nunito Sans", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-family: "Space Grotesk", sans-serif;
 }
 
 body {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
+  line-height: 1.8;
   background: #000000;
+  background-image: url("/public/images/pattern-rings.svg");
+  /* background-size: cover; */
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position-x: -10%;
+  background-position-y: 10rem;
+  /* line-height: 1.5; */
+
   color: #fff;
 }
-
+h1 {
+  font-size: 88px;
+  letter-spacing: -2.5px;
+  margin-right: -201px;
+  margin-bottom: 4.3rem;
+  line-height: 1;
+}
+.name {
+  position: relative;
+}
+.name::before {
+  content: "";
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--green);
+}
+.brand {
+  font-size: 3.2rem;
+  font-weight: bold;
+}
 .wrapper {
-  max-width: 1110px;
+  max-width: 1140px;
   margin-inline: auto;
 }
+/*//////////////////////// MY EDIT/////////////////////////////// */
+header {
+  max-width: 1110px;
+  margin-inline: auto;
 
+  height: 72rem;
+}
+.hero {
+  margin-top: 4rem;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr 0.75fr;
+}
+.hero-right {
+  position: relative;
+  display: grid;
+
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
+    url("/public/images/image-profile-desktop.webp") center/cover;
+  margin-top: -4rem;
+  padding-right: 2rem;
+  z-index: -1;
+}
+.hero-left {
+  z-index: 10;
+  position: relative;
+  /* margin-right: 5rem; */
+}
+.detail {
+  color: var(--grey);
+  width: 44rem;
+  text-align: left;
+}
+.icon-container {
+  display: flex;
+  align-self: flex-start;
+  margin-top: 4rem;
+
+  width: 40%;
+  justify-self: end;
+
+  gap: 3.2rem;
+}
+.hero-text {
+  margin-top: 6rem;
+  margin-bottom: 6.6rem;
+}
+.contact-me {
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: bold;
+  display: inline-block;
+}
 /*Header*/
 .header {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr 0.75fr;
+  height: 445px;
 }
 /* 
 .left {
@@ -36,7 +130,7 @@ body {
   margin-top: 1rem;
 }
 
-.left h3{
+.left h3 {
   font-size: 4rem;
   margin-top: 7rem;
 }
@@ -62,8 +156,6 @@ body {
 }
 
 .right {
-  height: 445px;
-  width: 720px;
   background-image: url("/public/images/image-profile-desktop.webp");
   background-size: cover;
 }
@@ -112,27 +204,129 @@ body {
 .projects-content {
   display: grid;
   grid-template-columns: auto auto;
-  grid-template-rows: auto auto auto;
+
   margin-top: 6rem;
-  grid-column-gap: 60px;
+
+  gap: 3rem;
 }
 
 .projects-images {
+  position: relative;
   display: grid;
+  cursor: pointer;
+
+  transition: transform 0.3s ease-in-out;
+}
+.projects-images:hover {
+  transform: scale(1.01);
+}
+.projects-images::before,
+.projects-images::after {
+  position: absolute;
+  content: "";
+
+  background-color: var(--green);
+  transition: all 0.3s ease-in-out;
+}
+.projects-images::before {
+  height: 0;
+  top: 0;
+  left: 0;
+  width: 0;
+  z-index: 1;
+}
+.projects-images::after {
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+.projects-images:hover::before {
+  width: 5px;
+  height: 100%;
 }
 
+.projects-images:hover::after {
+  width: 100%;
+  height: 5px;
+}
+.design {
+  position: relative;
+  height: 100%;
+}
+.design::before,
+.design::after {
+  position: absolute;
+  content: "";
+
+  background-color: var(--green);
+  transition: all 0.3s ease-in-out;
+}
+.design::before {
+  height: 5px;
+  top: 0;
+  left: 100%;
+  width: 0;
+}
+.design:hover::before {
+  left: 0;
+  width: 100%;
+}
+.design::after {
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+}
+.design:hover::after {
+  height: 100%;
+  width: 5px;
+}
+/* .design::before,
+.design::after {
+  position: absolute;
+  content: "";
+
+  background-color: var(--green);
+  transition: all 0.3s ease-in-out;
+}
+.design::before {
+  height: 0;
+  bottom: 0;
+  right: 0;
+  width: 0;
+}
+.design::after {
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+}
+.design:hover::before {
+  width: 5px;
+  height: 100%;
+}
+
+.design:hover::after {
+  width: 100%;
+  height: 5px;
+} */
+.projects-images:hover .project-frameworks {
+  transform: translateX(5px);
+}
 .projects-images img {
-  max-width: 540px;
+  width: 100%;
+  object-fit: cover;
 }
 
 .projects-images h3 {
-  margin-top: 2rem;
 }
 
 .project-frameworks {
   display: grid;
   grid-template-columns: auto auto auto;
-  margin: 2rem 0;
+  transition: transform 0.3s ease-in-out;
+  /* margin: 2rem 0; */
 }
 
 .project-frameworks h5 {
@@ -140,10 +334,15 @@ body {
 }
 
 /*contact section*/
-.contact {
+footer {
   margin-top: 6rem;
+  padding: 8.4rem 16.5rem;
+  background-color: var(--dark-grey);
 }
-
+.contact {
+  width: 114rem;
+  margin-inline: auto;
+}
 .contact-top {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -163,7 +362,6 @@ body {
 }
 
 .right-contact {
-
 }
 
 .contact-input {
@@ -172,26 +370,41 @@ body {
 }
 
 .contact-input input {
+  cursor: pointer;
   margin-top: 2rem;
-  background: #000000;
+  /* background: #000000; */
+  background-color: inherit;
   border: none;
   margin-top: 2rem;
   padding-left: 2rem;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: lighter;
+  transition: border-bottom 0.3s ease-in-out;
 }
+.contact-input input:focus {
+  border-bottom: solid 2px var(--green);
+}
+/* .contact-input input:active {
+  border-bottom: solid 1px green;
+} */
 
 .contact-input input:nth-child(1) {
   padding-bottom: 1.8rem;
-  border-bottom: 1px solid #fff;
+  /* border-bottom: 1px solid #fff; */
 }
 
 .contact-input input:nth-child(2) {
   padding-bottom: 1.8rem;
-  border-bottom: 1px solid #fff;
+  /* border-bottom: 1px solid #fff; */
 }
 
 .contact-input input:nth-child(3) {
   padding-bottom: 6rem;
-  border-bottom: 1.5px solid #fff;
+  /* border-bottom: 1.5px solid #fff; */
 }
 
 .contact-input p {
@@ -213,4 +426,3 @@ body {
   justify-content: space-between;
   margin-bottom: 5rem;
 }
-
